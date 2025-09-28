@@ -1,0 +1,129 @@
+.navbar {
+  position: fixed;
+  top: 20px; /* biar ada jarak dari atas */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  background: #fff; /* putih */
+  border-radius: 50px; /* oval */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1000;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+
+/* ✅ Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logoImg {
+  width: 150px;
+  height: 32px;
+  margin-right: 8px;
+}
+
+.logoText {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #ff6a00; /* oranye biar mirip gambar */
+}
+
+/* ✅ Menu */
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.navLink {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #ff6a00;
+}
+
+.navLink.active {
+  color: #ff6a00;
+}
+
+/* ✅ CTA Button */
+.ctaButton {
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255,106,0,0.4);
+}
+
+/* ✅ Mobile */
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  color: #333;
+  cursor: pointer;
+}
+
+.mobileMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.mobileMenu.open {
+  display: flex;
+}
+
+.mobileNavLink {
+  color: #333;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.mobileCtaButton {
+  margin-top: 1rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  display: block;
+  text-align: center;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+  }
+  
+  .menuToggle {
+    display: block;
+  }
+}

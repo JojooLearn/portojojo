@@ -1,0 +1,211 @@
+.highlightSection {
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.highlightSection::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 198, 69, 0.08), transparent 60%),
+    radial-gradient(circle at 80% 70%, rgba(255, 93, 75, 0.08), transparent 60%);
+  z-index: -1;
+} 
+
+/* Background Glow */
+.backgroundGlow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(255, 198, 69, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 93, 75, 0.1) 0%, transparent 50%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 10;
+  padding: 0 var(--spacing-lg);
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.sectionTitle {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  background: var(--gradient-primary);
+  background-size: 300% 300%;
+  animation: gradient-flow 8s ease infinite;
+    background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: var(--spacing-sm);
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray-light);
+  max-width: 600px;
+  margin: 0 auto var(--spacing-lg);
+  line-height: 1.6;
+}
+
+.seeAllButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all .3s ease;
+}
+
+/* Projects List (row layout) */
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.projectRow {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.15);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: all .3s ease;
+}
+
+.projectRow:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    var(--shadow-lg),
+    var(--glow-yellow),
+    var(--glow-orange);
+  border-color: rgba(255, 198, 69, 0.3);
+}
+
+/* Folder Tab */
+.folderTab {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.folderIcon {
+  color: var(--yellow);
+}
+
+.categoryLabel {
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Category Colors */
+.uiuxCategory { background: rgba(255, 93, 75, 0.15); color: #ff5d4b; }
+.websiteCategory { background: rgba(255, 198, 69, 0.15); color: #ffc645; }
+.mobileCategory { background: rgba(255, 171, 80, 0.15); color: #ffab50; }
+.defaultCategory { background: rgba(255,255,255,0.1); color: var(--text-light); }
+
+/* Body Layout */
+.projectBody {
+  display: flex;
+  align-items: stretch;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg); 
+}
+
+.imageWrapper {
+  flex: 0 0 40%;
+  height: 240px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .4s ease;
+}
+
+.projectRow:hover .projectImage {
+  transform: scale(1.05);
+}
+
+/* Info */
+.projectInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projectTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-light);
+}
+
+.projectDescription {
+  color: var(--text-gray-light);
+  margin-bottom: var(--spacing-md);
+  line-height: 1.6;
+    max-height: 4.8em; /* 3 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+
+.projectMeta {
+  font-size: 0.85rem;
+  color: var(--text-gray-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.dateInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.detailButton {
+  align-self: flex-start;
+  border-radius: 50px;
+  padding: 0.6rem 1.2rem;
+}
+
+/* Loading & Error */
+.loadingSpinner {
+  width: 40px; height: 40px;
+  border: 4px solid rgba(255,255,255,0.1);
+  border-left: 4px solid var(--yellow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

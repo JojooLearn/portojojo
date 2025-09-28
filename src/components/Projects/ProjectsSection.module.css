@@ -1,0 +1,550 @@
+.projectsSection {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xxl) 0;
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Filter Tabs */
+.filterTabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+}
+
+.filterTab {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 50px;
+  color: var(--text-gray-light);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filterTab:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    var(--shadow-lg),
+    var(--glow-yellow),
+    var(--glow-orange);
+  border-color: rgba(255, 198, 69, 0.3);
+}
+
+.activeTab {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border-color: transparent;
+  box-shadow: var(--glow-primary);
+}
+
+.tabIcon {
+  display: flex;
+  align-items: center;
+}
+
+/* Projects List Horizontal */
+.projectsList {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Horizontal Project Card */
+.projectCardHorizontal {
+  display: flex;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 280px;
+}
+
+.projectCardHorizontal:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    var(--shadow-lg),
+    var(--glow-yellow),
+    var(--glow-orange);
+  border-color: rgba(255, 198, 69, 0.3);
+}
+
+/* Image Container Horizontal */
+.imageContainerHorizontal {
+  flex: 0 0 45%; /* 45% width untuk image */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  min-height: 280px;
+}
+
+.projectImageHorizontal {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+    border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.projectCardHorizontal:hover .projectImageHorizontal {
+  transform: scale(1.05);
+}
+
+.imageOverlayHorizontal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 12px;
+  margin: 1.5rem; /* Sesuaikan dengan padding container */
+}
+
+.projectCardHorizontal:hover .imageOverlayHorizontal {
+  opacity: 1;
+}
+
+.projectActionsHorizontal {
+  display: flex;
+  gap: 1rem;
+}
+
+.actionButtonHorizontal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.actionButtonHorizontal:hover {
+  background: var(--text-dark);
+  color: var(--yellow);
+  transform: scale(1.1);
+  box-shadow: var(--glow-primary);
+}
+
+/* Project Content Horizontal */
+.projectContentHorizontal {
+  padding: 2rem 2rem 2rem 0; /* Padding kiri dikurangi */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.projectMetaHorizontal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.categoryBadgeHorizontal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.categoryIconHorizontal {
+  display: flex;
+  align-items: center;
+}
+
+/* Category Colors */
+.uiuxCategory {
+  background: linear-gradient(135deg, #FFC645, #FFAB50);
+  color: var(--text-dark);
+}
+
+.websiteCategory {
+  background: linear-gradient(135deg, #FFAB50, #FF5D4B);
+  color: var(--text-light);
+}
+
+.mobileCategory {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: var(--text-light);
+}
+
+.defaultCategory {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+}
+
+.projectDateHorizontal {
+  color: var(--text-gray-light);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.projectTitleHorizontal {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.projectDescriptionHorizontal {
+  color: var(--text-gray-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+/* Project Links Horizontal */
+.projectLinksHorizontal {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.demoLinkHorizontal, .githubLinkHorizontal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.demoLinkHorizontal {
+  background: rgba(255, 198, 69, 0.1);
+  color: var(--yellow);
+  border: 1px solid rgba(255, 198, 69, 0.3);
+}
+
+.demoLinkHorizontal:hover {
+  background: var(--yellow);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+}
+
+.githubLinkHorizontal {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-gray-light);
+  border: 1px solid var(--glass-border);
+}
+
+.githubLinkHorizontal:hover {
+  background: var(--glass-bg);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+/* Detail Button Horizontal */
+.detailButtonContainerHorizontal {
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1.5rem;
+}
+
+.detailButtonHorizontal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  color: var(--yellow);
+  border: 2px solid var(--yellow);
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.detailButtonHorizontal:hover {
+  background: var(--yellow);
+  color: var(--text-dark);
+  transform: translateY(-2px);
+  box-shadow: var(--glow-yellow);
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 3rem 0 2rem;
+}
+
+.paginationButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-gray-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.paginationButton:hover:not(:disabled) {
+  background: rgba(255, 198, 69, 0.1);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.paginationButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pageNumbers {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pageNumber {
+  padding: 0.8rem 1.2rem;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-gray-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  min-width: 45px;
+}
+
+.pageNumber:hover {
+  background: rgba(255, 198, 69, 0.1);
+  color: var(--text-light);
+}
+
+.activePage {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border-color: transparent;
+  box-shadow: var(--glow-primary);
+}
+
+/* Projects Info */
+.projectsInfo {
+  text-align: center;
+  color: var(--text-gray-light);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+/* Loading State */
+.loadingState {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-left: 4px solid var(--yellow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+.loadingText {
+  color: var(--text-gray-light);
+  font-size: 1.1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.errorState {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.errorText {
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.retryButton {
+  padding: 0.8rem 1.5rem;
+  background: var(--yellow);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retryButton:hover {
+  background: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.emptyText {
+  color: var(--text-gray-light);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+  .projectCardHorizontal {
+    grid-template-columns: 350px 1fr; /* Sedikit lebih kecil di tablet */
+    gap: 1.5rem;
+  }
+  
+  .projectContentHorizontal {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .projectCardHorizontal {
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 1fr; /* Di mobile jadi vertikal */
+    gap: 0;
+  }
+/*   
+  .imageContainerHorizontal {
+    height: 200px;
+  } */
+  
+  .filterTabs {
+    gap: 0.5rem;
+  }
+  
+  .filterTab {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+  
+  .pagination {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .pageNumbers {
+    order: -1;
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .projectLinksHorizontal {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .demoLinkHorizontal, .githubLinkHorizontal {
+    justify-content: center;
+  }
+  
+  .pageNumber {
+    padding: 0.6rem 1rem;
+    min-width: 40px;
+  }
+}

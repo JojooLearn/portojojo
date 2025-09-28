@@ -1,0 +1,791 @@
+.certificatesSection {
+  padding: 4rem 0;
+  position: relative;
+  min-height: 100vh;
+}
+
+.backgroundElements {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.glowCircle1 {
+  position: absolute;
+  top: 15%;
+  left: 8%;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 198, 69, 0.08) 0%, transparent 70%);
+  animation: pulse 6s ease-in-out infinite;
+}
+
+.glowCircle2 {
+  position: absolute;
+  bottom: 20%;
+  right: 12%;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 171, 80, 0.06) 0%, transparent 70%);
+  animation: pulse 7s ease-in-out infinite 2s;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 0.3; }
+  50% { transform: scale(1.2); opacity: 0.6; }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Section Header */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--text-gray-light);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Filter Section */
+.filterSection {
+  margin-bottom: 2rem;
+}
+
+.filterTabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.filterTab {
+  padding: 0.7rem 1.2rem;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 25px;
+  color: var(--text-gray-light);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.filterTab:hover {
+  background: rgba(255, 198, 69, 0.1);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.activeTab {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border-color: transparent;
+  box-shadow: var(--glow-primary);
+}
+
+/* Certificates Info */
+.certificatesInfo {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--text-gray-light);
+  font-size: 0.9rem;
+}
+
+/* Certificates Grid */
+.certificatesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* Certificate Card */
+.certificateCard {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 15px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.certificateCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 
+    var(--shadow-lg),
+    0 8px 30px rgba(255, 198, 69, 0.15);
+  border-color: rgba(255, 198, 69, 0.3);
+}
+
+/* Certificate Preview */
+.certificatePreview {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.pdfPreview {
+  height: 100%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.pdfIcon {
+  color: white;
+  margin-bottom: 0.5rem;
+}
+
+.pdfBadge {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 0.2rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  backdrop-filter: blur(10px);
+}
+
+.imagePreview {
+  height: 100%;
+  position: relative;
+}
+
+.certificateImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.certificateCard:hover .certificateImage {
+  transform: scale(1.05);
+}
+
+.previewOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.certificateCard:hover .previewOverlay {
+  opacity: 1;
+}
+
+.viewButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.2rem;
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.viewButton:hover {
+  transform: scale(1.05);
+  box-shadow: var(--glow-primary);
+}
+
+/* Issuer Badge */
+.issuerBadge {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Issuer Colors */
+.issuer1 {
+  background: linear-gradient(135deg, #FFC645, #FFAB50);
+  color: var(--text-dark);
+}
+
+.issuer2 {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: var(--text-light);
+}
+
+.issuer3 {
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: var(--text-light);
+}
+
+.issuer4 {
+  background: linear-gradient(135deg, #ed8936, #dd6b20);
+  color: var(--text-light);
+}
+
+.issuer5 {
+  background: linear-gradient(135deg, #9f7aea, #805ad5);
+  color: var(--text-light);
+}
+
+.issuer6 {
+  background: linear-gradient(135deg, #ed64a6, #d53f8c);
+  color: var(--text-light);
+}
+
+.defaultIssuer {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+}
+
+/* Certificate Content */
+.certificateContent {
+  padding: 1.5rem;
+}
+
+.certificateMeta {
+  margin-bottom: 0.8rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-gray-light);
+  font-size: 0.8rem;
+}
+
+.metaIcon {
+  color: var(--yellow);
+}
+
+.certificateTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  line-height: 1.3;
+  margin-bottom: 0.8rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.certificateDescription {
+  color: var(--text-gray-light);
+  line-height: 1.4;
+  margin-bottom: 1.2rem;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+
+/* Certificate Actions */
+.certificateActions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--glass-border);
+  padding-top: 1rem;
+}
+
+.detailButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.detailButton:hover {
+  background: var(--yellow);
+  color: var(--text-dark);
+  transform: translateY(-1px);
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.downloadButton:hover {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border-color: transparent;
+  transform: translateY(-1px);
+}
+
+/* Modal Styles */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.modalBackdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.modalContent {
+  position: relative;
+  margin-top: 85px;
+  max-width: 1000px;
+  max-height: 85vh;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  overflow: hidden;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+}
+
+.modalClose {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.modalClose:hover {
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+}
+
+.modalHeader {
+  padding: 2rem 2rem 1rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 198, 69, 0.1) 0%, 
+    rgba(255, 171, 80, 0.05) 100%);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.modalIcon {
+  flex-shrink: 0;
+}
+
+.awardIcon {
+  color: var(--yellow);
+}
+
+.modalTitleSection {
+  flex: 1;
+}
+
+.modalTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.modalMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.modalYear {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: var(--text-gray-light);
+  font-size: 0.9rem;
+}
+
+.modalBody {
+  padding: 1.5rem 2rem;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.modalPreview {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.modalPdfPreview {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  color: white;
+}
+
+.modalPdfPreview .pdfIcon {
+  margin-bottom: 1rem;
+}
+
+.modalPdfPreview .pdfBadge {
+  background: rgba(255, 255, 255, 0.3);
+  margin-bottom: 0.5rem;
+}
+
+.pdfText {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+}
+
+.modalImage {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+}
+
+.modalDetails {
+    margin-top: 1.5rem;
+}
+
+.detailSection {
+  margin-bottom: 1.5rem;
+}
+
+.detailTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.detailText {
+  color: var(--text-gray-light);
+  line-height: 1.5;
+}
+
+.detailGrid {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.detailItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detailIcon {
+  color: var(--yellow);
+  flex-shrink: 0;
+}
+
+.detailLabel {
+  font-weight: 500;
+  color: var(--text-light);
+  min-width: 100px;
+}
+
+.detailValue {
+  color: var(--text-gray-light);
+}
+
+.modalFooter {
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid var(--glass-border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.downloadLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.downloadLink:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-primary);
+}
+
+.closeButton {
+  padding: 0.8rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.closeButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--yellow);
+}
+
+/* Empty State */
+.emptyState {
+  text-align: center;
+  padding: 4rem 2rem;
+  grid-column: 1 / -1;
+}
+
+.emptyIcon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0.5;
+}
+
+.emptyTitle {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.emptyText {
+  color: var(--text-gray-light);
+  margin-bottom: 2rem;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.resetButton {
+  padding: 0.8rem 1.5rem;
+  background: var(--gradient-primary);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.resetButton:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--glow-primary);
+}
+
+/* Loading State */
+.loadingState {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.loadingSpinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-left: 4px solid var(--yellow);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+.loadingText {
+  color: var(--text-gray-light);
+  font-size: 1.1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.errorState {
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.errorIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.errorTitle {
+  font-size: 1.5rem;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+
+.errorText {
+  color: #e53e3e;
+  margin-bottom: 1.5rem;
+}
+
+.retryButton {
+  padding: 0.8rem 1.5rem;
+  background: var(--yellow);
+  color: var(--text-dark);
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.retryButton:hover {
+  background: var(--orange);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .certificatesSection {
+    padding: 3rem 0;
+  }
+  
+  .container {
+    padding: 0 1rem;
+  }
+  
+  .sectionTitle {
+    font-size: 2rem;
+  }
+  
+  .certificatesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .filterTabs {
+    gap: 0.3rem;
+  }
+  
+  .filterTab {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+  
+  .modal {
+    padding: 1rem;
+  }
+  
+  .modalContent {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .modalHeader {
+    padding: 1.5rem 1rem 1rem;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .modalBody {
+    padding: 1rem;
+  }
+  
+  .modalFooter {
+    padding: 1rem;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .certificatePreview {
+    height: 160px;
+  }
+  
+  .certificateContent {
+    padding: 1rem;
+  }
+  
+  .certificateTitle {
+    font-size: 1rem;
+  }
+}
