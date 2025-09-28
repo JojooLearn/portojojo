@@ -20,7 +20,7 @@ const GallerySection = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const apiUrl = "http://portojohanieh.my.id/Portojohaniieh/api_controller/galleries";
+  const apiUrl = "https://portojohanieh.my.id/Portojohaniieh/api_controller/galleries";
 
   useEffect(() => {
     const fetchGalleries = async () => {
@@ -207,7 +207,7 @@ const GallerySection = () => {
                 {/* Image Container */}
                 <div className={styles.imageContainer}>
                   <img
-                    src={`http://portojohanieh.my.id/Portojohaniieh/${image.file_path}`}
+                    src={`https://portojohanieh.my.id/Portojohaniieh/${image.file_path}`}
                     alt={image.title}
                     className={styles.galleryImage}
                   /> 
@@ -339,7 +339,7 @@ const GallerySection = () => {
               {/* Image */}
               <div className={styles.lightboxImageWrapper}>
                 <img
-                  src={`http://portojohanieh.my.id/Portojohaniieh/${selectedImage.file_path}`}
+                  src={`https://portojohanieh.my.id/Portojohaniieh/${selectedImage.file_path}`}
                   alt={selectedImage.title}
                   className={styles.lightboxImage}
                 />

@@ -11,7 +11,7 @@ const ProjectDetail = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiUrl = `http://portojohanieh.my.id/Portojohaniieh/api_controller/projects/${slug}`;
+  const apiUrl = `https://portojohanieh.my.id/Portojohaniieh/api_controller/projects/${slug}`;
 
   useEffect(() => {
     const fetchProjectDetail = async () => {
@@ -174,7 +174,7 @@ const ProjectDetail = () => {
           {project.cover_image && (
             <div className={styles.coverImageContainer}>
               <img 
-                src={`http://portojohanieh.my.id/Portojohaniieh/${project.cover_image}`} 
+                src={`https://portojohanieh.my.id/Portojohaniieh/${project.cover_image}`} 
                 alt={project.title}
                 className={styles.coverImage}
               />
@@ -246,7 +246,7 @@ const ProjectDetail = () => {
                 {project.images.map((image, index) => (
                   <div key={index} className={styles.galleryItem}>
                     <img 
-                      src={`http://portojohanieh.my.id/Portojohaniieh/${image.file_path}`} 
+                      src={`https://portojohanieh.my.id/Portojohaniieh/${image.file_path}`} 
                       alt={image.caption || `Gambar ${index + 1} - ${project.title}`}
                       className={styles.galleryImage}
                     />

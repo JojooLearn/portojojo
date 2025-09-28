@@ -170,7 +170,7 @@ const ContactSection = () => {
         timestamp: now.toString()
       };
 
-      const response = await fetch("http://portojohanieh.my.id/Portojohaniieh/api_controller/contacts", {
+      const response = await fetch("https://portojohanieh.my.id/Portojohaniieh/api_controller/contacts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

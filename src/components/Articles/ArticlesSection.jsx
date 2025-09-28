@@ -12,7 +12,7 @@ const ArticlesSection = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const apiUrl = "http://portojohanieh.my.id/Portojohaniieh/api_controller/articles";
+  const apiUrl = "https://portojohanieh.my.id/Portojohaniieh/api_controller/articles";
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -211,7 +211,7 @@ const ArticlesSection = () => {
               {article.cover_image && (
                 <div className={styles.articleImageContainer}>
                   <img
-                    src={`http://portojohanieh.my.id/Portojohaniieh/${article.cover_image}`}
+                    src={`https://portojohanieh.my.id/Portojohaniieh/${article.cover_image}`}
                     alt={article.title}
                     className={styles.articleImage}
                   />

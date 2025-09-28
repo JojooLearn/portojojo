@@ -10,7 +10,7 @@ const HighlightProjects = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiUrl = 'http://portojohanieh.my.id/Portojohaniieh/api_controller/projects';
+  const apiUrl = 'https://portojohanieh.my.id/Portojohaniieh/api_controller/projects';
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -102,7 +102,7 @@ const HighlightProjects = () => {
                 {/* Image */}
                 <div className={styles.imageWrapper}>
                   <img 
-                    src={`http://portojohanieh.my.id/Portojohaniieh/${project.cover_image}`} 
+                    src={`https://portojohanieh.my.id/Portojohaniieh/${project.cover_image}`} 
                     alt={project.title}
                     className={styles.projectImage}
                   />

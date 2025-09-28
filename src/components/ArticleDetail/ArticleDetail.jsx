@@ -12,7 +12,7 @@ const ArticleDetail = () => {
   const [error, setError] = useState(null);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
-  const apiUrl = `http://portojohanieh.my.id/Portojohaniieh/api_controller/articles/${slug}`;
+  const apiUrl = `https://portojohanieh.my.id/Portojohaniieh/api_controller/articles/${slug}`;
 
   useEffect(() => {
     const fetchArticleDetail = async () => {
@@ -204,7 +204,7 @@ const ArticleDetail = () => {
         {article.cover_image && (
           <div className={styles.coverImageContainer}>
             <img 
-              src={`http://portojohanieh.my.id/Portojohaniieh/${article.cover_image}`} 
+              src={`https://portojohanieh.my.id/Portojohaniieh/${article.cover_image}`} 
               alt={article.title}
               className={styles.coverImage}
             />

@@ -9,7 +9,7 @@ const HighlightBlog = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiUrl = 'http://portojohanieh.my.id/Portojohaniieh/api_controller/articles';
+  const apiUrl = 'https://portojohanieh.my.id/Portojohaniieh/api_controller/articles';
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -122,7 +122,7 @@ const HighlightBlog = () => {
                 {article.cover_image && (
                   <div className={styles.imageContainer}>
                     <img 
-                      src={`http://portojohanieh.my.id/Portojohaniieh/${article.cover_image}`} 
+                      src={`https://portojohanieh.my.id/Portojohaniieh/${article.cover_image}`} 
                       alt={article.title}
                       className={styles.blogImage}
                     />

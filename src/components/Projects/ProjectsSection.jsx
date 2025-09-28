@@ -16,7 +16,7 @@ const ProjectsSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [projectsPerPage] = useState(5);
 
-  const apiUrl = 'http://portojohanieh.my.id/Portojohaniieh/api_controller/projects';
+  const apiUrl = 'https://portojohanieh.my.id/Portojohaniieh/api_controller/projects';
 
   useEffect(() => {
     const fetchProjects = async () => {
@@ -161,7 +161,7 @@ const ProjectsSection = () => {
               {/* Project Image */}
               <div className={styles.imageContainerHorizontal}>
                 <img 
-                  src={`http://portojohanieh.my.id/Portojohaniieh/${project.cover_image}`} 
+                  src={`https://portojohanieh.my.id/Portojohaniieh/${project.cover_image}`} 
                   alt={project.title}
                   className={styles.projectImageHorizontal}
                 />

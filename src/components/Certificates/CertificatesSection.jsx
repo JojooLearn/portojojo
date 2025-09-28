@@ -11,7 +11,7 @@ const CertificatesSection = () => {
   const [selectedCert, setSelectedCert] = useState(null);
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const apiUrl = "http://portojohanieh.my.id/Portojohaniieh/api_controller/certificates";
+  const apiUrl = "https://portojohanieh.my.id/Portojohaniieh/api_controller/certificates";
 
   useEffect(() => {
     const fetchCertificates = async () => {
@@ -166,7 +166,7 @@ const CertificatesSection = () => {
                 ) : (
                   <div className={styles.imagePreview}>
                     <img
-                      src={`http://portojohanieh.my.id/Portojohaniieh/${cert.file_path}`}
+                      src={`https://portojohanieh.my.id/Portojohaniieh/${cert.file_path}`}
                       alt={cert.title}
                       className={styles.certificateImage}
                     />
@@ -218,7 +218,7 @@ const CertificatesSection = () => {
                   </button>
                   {cert.file_path && (
                     <a
-                      href={`http://portojohanieh.my.id/Portojohaniieh/${cert.file_path}`}
+                      href={`https://portojohanieh.my.id/Portojohaniieh/${cert.file_path}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.downloadButton}
@@ -305,7 +305,7 @@ const CertificatesSection = () => {
                     </div>
                   ) : (
                     <img
-                      src={`http://portojohanieh.my.id/Portojohaniieh/${selectedCert.file_path}`}
+                      src={`https://portojohanieh.my.id/Portojohaniieh/${selectedCert.file_path}`}
                       alt={selectedCert.title}
                       className={styles.modalImage}
                     />
@@ -343,7 +343,7 @@ const CertificatesSection = () => {
               <div className={styles.modalFooter}>
                 {selectedCert.file_path && (
                   <a
-                    href={`http://portojohanieh.my.id/Portojohaniieh/${selectedCert.file_path}`}
+                    href={`https://portojohanieh.my.id/Portojohaniieh/${selectedCert.file_path}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.downloadLink}
